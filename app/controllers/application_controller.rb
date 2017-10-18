@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :require_sign_in
+  helper_method :current_user
   
   def current_user
     @current_user ||= User.where(id: session[:user_id]).first

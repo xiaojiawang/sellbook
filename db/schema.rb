@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20171017063914) do
+ActiveRecord::Schema.define(:version => 20171018043136) do
+
+  create_table "books", :force => true do |t|
+    t.integer  "user_id",                                                  :null => false
+    t.string   "name",                                                     :null => false
+    t.string   "author"
+    t.string   "description"
+    t.decimal  "price",       :precision => 5, :scale => 2,                :null => false
+    t.integer  "status",                                    :default => 1, :null => false
+    t.integer  "position",                                  :default => 1, :null => false
+    t.string   "pic_key"
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "mobile",          :null => false

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password 
   attr_accessible :name, :mobile, :email, :password, :password_confirmation
   before_create :init_data
+  has_many :books
 
   def self.authenticated(mobile,password)
     where("mobile = ?", mobile).first.try(:authenticate, password)

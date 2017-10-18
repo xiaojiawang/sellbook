@@ -10,12 +10,12 @@
 <%# end %>
 <%# end %>
 
-<% content_for :login do %>
+<% content_for :content do %>
 <%= form_for(:session, url: sessions_path) do |f| %>
-  电话:
-  <%= f.text_field :mobile %>
+  手机号码:
+  <%= f.text_field :mobile %><br>
   密码:
-  <%= f.text_field :password %>
+  <%= f.text_field :password %><br>
   <%= f.submit '登录' %>
 <% end %>
 <% end %>

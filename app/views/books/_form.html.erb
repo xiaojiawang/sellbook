@@ -1,0 +1,14 @@
+<% content_for :content do %>
+<%= form_for @book do |book| %>
+<%= book.hidden_field :user_id, value: @user.id %>
+书名<%= book.text_field :name %><br>
+作者<%= book.text_field :author %><br>
+描述<%= book.text_field :description %><br>
+价格<%= book.text_field :price %><br>
+状态<%= book.text_field :status %><br>
+排序<%= book.text_field :position %><br>
+<!-- 图片<%#= book.text_field :pic_key %><br> -->
+图片<%= book.file_field :pic_key %><br>
+<%= book.submit '创建' %>
+<% end %>
+<% end %>

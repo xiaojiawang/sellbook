@@ -1,10 +1,11 @@
 SellBook::Application.routes.draw do
-
+# root 'books#index'
 resources :sessions
 match 'login', to: 'sessions#new'
 match 'sign_out', to: 'sessions#destroy'
 resources :users
 match 'register', to: 'users#new'
+resources :books
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

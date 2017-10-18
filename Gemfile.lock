@@ -31,6 +31,12 @@ GEM
     arel (3.0.3)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    carrierwave (0.11.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+      mimemagic (>= 0.3.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -55,6 +61,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mimemagic (0.3.2)
+    mini_magick (4.2.0)
     multi_json (1.12.2)
     mysql2 (0.3.18)
     polyglot (0.3.5)
@@ -118,8 +126,10 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  carrierwave
   coffee-rails (~> 3.2.1)
   jquery-rails
+  mini_magick
   mysql2 (= 0.3.18)
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
