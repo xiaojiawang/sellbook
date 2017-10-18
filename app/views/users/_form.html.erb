@@ -1,0 +1,23 @@
+<% content_for :content do %>
+
+<%= form_for @user do |user|  %>
+<%#= render 'shared/error_messages' %>
+用户名：<br>
+<%= user.text_field :name %><br>
+密码：<br>
+<%= user.text_field :password %><br>
+确认密码:<br>
+<%= user.text_field :password_confirmation %><br>
+电话：<br>
+<%= user.text_field :mobile %><br>
+邮箱：<br>
+<%= user.text_field :email %><br>
+
+<%= user.submit %>
+<% end %>
+
+<% end %>
+
+
+
+

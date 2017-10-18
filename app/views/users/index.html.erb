@@ -1,0 +1,8 @@
+<% content_for :content do%>
+<% @users.each do |user| %>
+电话:<%= user.mobile %>
+姓名:<%= user.name %>
+邮箱:<%= user.email %>
+<br>
+<% end %>
+<% end %>

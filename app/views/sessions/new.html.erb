@@ -1,0 +1,28 @@
+
+
+<%# content_for :login do %>
+<%#= form_tag sessions_path do %>
+<!-- 手机号码: -->
+<%#= text_field_tag :mobile, params[:mobile] %><br>
+<!-- 密码: -->
+<%#=  text_field_tag :password, params[:password] %><br>
+<%#= submit_tag '立即登录' %>
+<%# end %>
+<%# end %>
+
+<% content_for :login do %>
+<%= form_for(:session, url: sessions_path) do |f| %>
+  电话:
+  <%= f.text_field :mobile %>
+  密码:
+  <%= f.text_field :password %>
+  <%= f.submit '登录' %>
+<% end %>
+<% end %>
+
+
+
+
+
+
+
