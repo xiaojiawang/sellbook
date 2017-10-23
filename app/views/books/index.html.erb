@@ -1,14 +1,30 @@
+<style type="text/css">
+.cc{width: 240px;}
+</style>
 <% content_for :content do%>
 <div class="row">
 
-<% @books.each do |book| %>
+<%= form_for @search, :url => books_path, :html => {:method => :get} do |f| %>
 <div class="col-md-3">
-<div style="height: 290px;">
-<%= image_tag book.pic_key.thumb.url if book.pic_key.present? %>
+<%= f.text_field :name_or_author_or_description_like, class: "cc", placeholder:'输入书名,作者名,或描述进行查询' %>
+</div>
+<div class="col-md-3">
+<%= f.submit '查询' %>
+</div>
+<% end %>
+</div>
+<div class="row">
+<% @books.each do |book| %>
+<div class="col-md-3" style="height: 390px; margin-top: 40px">
+<a href="<%= book_path(book.id) %>">
+<div>
+<%= image_tag book.pic_key.gold.url if book.pic_key.present? %>
+<br>
 书名:<%= book.name %><br>
 作者:<%= book.author %><br>
 描述:<%= book.description %><br>
 </div>
+</a>
 </div>
 <% end %>
 

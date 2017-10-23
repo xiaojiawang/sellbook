@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
   skip_before_filter :require_sign_in, only: [:index, :show]
   def index
-    @books = Book.where(status: 1)
+    @search = Book.search(params[:search])
+    @books = @search.all
   end
 
   def new
@@ -22,6 +23,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
 end

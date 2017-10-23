@@ -1,2 +1,16 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<% content_for :content do %>
+<div class="row">
+<div class="col-md-3">
+<%= image_tag @book.pic_key.gold.url if @book.pic_key.present? %>
+</div>
+<div class="col-md-3">
+  持有者 : <%= User.find(@book.user_id).name %><br>
+  书名 : <%= @book.name %><br>
+  作者 : <%= @book.author %><br>
+  描述 : <%= @book.description %><br>
+  价格 : <%= @book.price %><br>
+  创建时间 : <%= @book.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  
+</div>
+</div>
+<% end %>
