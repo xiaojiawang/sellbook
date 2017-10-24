@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :require_sign_in, only: [:new, :create]
+  before_filter :find_user, only: [:edit, :update]
   def index
     @users = User.all
   end
@@ -18,6 +19,15 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @user.update_attributes(params[:user])
+      redirect_to books_path
+    else
+      render 'self_info'
+    end
+
   end
 
   def show
