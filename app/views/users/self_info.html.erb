@@ -1,1 +1,61 @@
-<%= render 'form' %>
+<% content_for :content do %>
+<div class="row">
+
+<%= form_for @user do |f|  %>
+<div class="col-md-3">
+<%#= render 'shared/error_messages' %>
+用户名：<br>
+<%= f.text_field :name %><br>
+密码：<br>
+<%= f.text_field :password %><br>
+确认密码:<br>
+<%= f.text_field :password_confirmation %><br>
+电话：<br>
+<%= f.text_field :mobile %><br>
+邮箱：<br>
+<%= f.text_field :email %><br><br>
+<%= f.collection_select(:province_id, Province.all, :id, :name, {include_blank: '请选择省份'})  %><br><br>
+<%= f.collection_select(:city_id, City.all, :id, :name, {include_blank: '请选择城市'})  %><br><br>
+</div>
+<div class="col-md-1"></div>
+<div class="col-md-8">
+  <%= image_tag @user.avatar.thumb.url if @user.avatar.present? %>
+</div>
+<%= f.submit '提交' %>
+<% end %>
+</div>
+<% end %>
+<script type="text/javascript">
+    $(document).ready(function() {
+      alert("启动");
+      //更新地址栏省市区数据
+      function refreshCityOptions(province_id) {
+        alert("启动3");
+        $.ajax({
+          url: "<%= cities_cities_path %>",
+          data: { "province_id": province_id },
+          dataType: 'json',
+          success: function(result){
+            var options = $("#user_city_id");
+            options.empty(); // remove old options
+            options.append($("<option></option>").attr("value", '').text('请选择城市'));
+            $.each(result, function(index, option) {
+              options.append($("<option></option>")
+                .attr("value", option.id).text(option.name));
+            });
+          }
+        });
+      }
+      
+      $("#user_province_id").on('change', function(e){
+        alert("启动1");
+        var province_id = $(this).val();
+        refreshCityOptions(province_id);
+      });
+    });
+
+  </script>
+
+
+
+

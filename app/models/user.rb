@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password 
-  attr_accessible :name, :mobile, :email, :password, :password_confirmation, :province_id, :city_id
+  mount_uploader :avatar, AvatarUploader
+  attr_accessible :name, :mobile, :email, :password, :password_confirmation, :province_id, :city_id, :avatar
   before_create :init_data
   belongs_to :province
   has_many :books

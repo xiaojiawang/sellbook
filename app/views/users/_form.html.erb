@@ -16,8 +16,9 @@
 <%= f.collection_select(:province_id, Province.all, :id, :name, {include_blank: '请选择省份'})  %><br><br>
 <%= f.collection_select(:city_id, City.all, :id, :name, {include_blank: '请选择城市'})  %><br><br>
 </div>
-<div class="col-md-9">
-  
+<div class="col-md-1"></div>
+<div class="col-md-3">
+  头像 : <%= f.file_field :avatar %><br>
 </div>
 </div>
 <div class="row">
