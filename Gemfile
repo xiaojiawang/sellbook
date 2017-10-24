@@ -5,6 +5,7 @@ gem 'mysql2', '0.3.18'
 gem 'carrierwave'
 gem 'mini_magick'
 gem "meta_search"
+gem 'rest-client'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

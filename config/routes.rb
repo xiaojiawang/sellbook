@@ -3,9 +3,15 @@ SellBook::Application.routes.draw do
 resources :sessions
 match 'login', to: 'sessions#new'
 match 'sign_out', to: 'sessions#destroy'
-resources :users
+resources :users do
+  get :self_info, on: :collection
+end
 match 'register', to: 'users#new'
 resources :books
+resources :provinces
+resources :cities do
+  get :cities, on: :collection
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

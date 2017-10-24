@@ -1,12 +1,12 @@
 <style type="text/css">
-.cc{width: 240px;}
+.search{width: 223px;}
 </style>
 <% content_for :content do%>
 <div class="row">
 
 <%= form_for @search, :url => books_path, :html => {:method => :get} do |f| %>
 <div class="col-md-3">
-<%= f.text_field :name_or_author_or_description_like, class: "cc", placeholder:'输入书名,作者名,或描述进行查询' %>
+<%= f.text_field :name_or_author_or_description_like, class: "search", placeholder:'输入书名,作者名,或描述进行查询' %>
 </div>
 <div class="col-md-3">
 <%= f.submit '查询' %>
@@ -22,7 +22,7 @@
 <br>
 书名:<%= book.name %><br>
 作者:<%= book.author %><br>
-描述:<%= book.description %><br>
+描述:<%= book.description.first(50) %><br>
 </div>
 </a>
 </div>

@@ -22,4 +22,13 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def find_user
+    @user = User.find(params[:id])
+  end
+
+  def self_info
+    @user = current_user
+  end
+
 end

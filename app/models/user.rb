@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password 
-  attr_accessible :name, :mobile, :email, :password, :password_confirmation
+  attr_accessible :name, :mobile, :email, :password, :password_confirmation, :province_id
   before_create :init_data
+  belongs_to :province
   has_many :books
 
   def self.authenticated(mobile,password)
