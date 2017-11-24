@@ -4,7 +4,7 @@
 <%= image_tag @book.pic_key.gold.url if @book.pic_key.present? %>
 </div>
 <div class="col-md-9">
-  持有者 : <%= User.find(@book.user_id).name %><br>
+  持有者 : <%= User.where(id: @book.user_id).first.try(:name) %><br>
   书名 : <%= @book.name %><br>
   作者 : <%= @book.author %><br>
   描述 : <%= @book.description %><br>

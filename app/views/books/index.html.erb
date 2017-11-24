@@ -3,7 +3,6 @@
 </style>
 <% content_for :content do%>
 <div class="row">
-
 <%= form_for @search, :url => books_path, :html => {:method => :get} do |f| %>
 <div class="col-md-3">
 <%= f.text_field :name_or_author_or_description_like, class: "search", placeholder:'输入书名,作者名,或描述进行查询' %>
@@ -12,17 +11,25 @@
 <%= f.submit '查询' %>
 </div>
 <% end %>
+  <div class="col-md-2">
+    <%= form_tag import_books_path, multipart: true, class: "books_import" do%>
+      <span id="uploadImg">
+        <input type="file" id="file" name="file" size="1" >
+          <a href="#" class= "btn btn-primary" style="padding-top: 5px;">导入</a>
+      </span>
+    <% end %>
+  </div>
 </div>
 <div class="row">
 <% @books.each do |book| %>
-<div class="col-md-3" style="height: 390px; margin-top: 40px">
+<div class="col-md-3" style="height: 390px; margin-top: 45px">
 <a href="<%= book_path(book.id) %>">
 <div>
 <%= image_tag book.pic_key.gold.url if book.pic_key.present? %>
 <br>
 书名:<%= book.name %><br>
 作者:<%= book.author %><br>
-描述:<%= book.description.first(50) %><br>
+描述:<%= book.description.first(50) if book.description.present? %><br>
 </div>
 </a>
 </div>
@@ -30,3 +37,10 @@
 
 </div>
 <% end %>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#file').change(function(){
+  $(".books_import").submit();
+});
+});
+</script>

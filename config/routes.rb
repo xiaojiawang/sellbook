@@ -7,7 +7,9 @@ resources :users do
   get :self_info, on: :collection
 end
 match 'register', to: 'users#new'
-resources :books
+resources :books do 
+  post :import, on: :collection
+end
 resources :provinces
 resources :cities do
   get :cities, on: :collection

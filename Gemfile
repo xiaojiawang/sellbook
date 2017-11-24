@@ -6,6 +6,11 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem "meta_search"
 gem 'rest-client'
+gem "roo", "~> 2.7.0"
+
+group :development do
+  gem "capistrano", "~> 3.10"
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

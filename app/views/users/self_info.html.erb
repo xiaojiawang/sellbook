@@ -19,18 +19,20 @@
 </div>
 <div class="col-md-1"></div>
 <div class="col-md-8">
-  <%= image_tag @user.avatar.thumb.url if @user.avatar.present? %>
+  <%= image_tag @user.avatar.normal.url if @user.avatar.present? %><br><br>
 </div>
+<div class="col-md-12">
 <%= f.submit '提交' %>
+</div>
+
+
 <% end %>
 </div>
 <% end %>
 <script type="text/javascript">
     $(document).ready(function() {
-      alert("启动");
       //更新地址栏省市区数据
       function refreshCityOptions(province_id) {
-        alert("启动3");
         $.ajax({
           url: "<%= cities_cities_path %>",
           data: { "province_id": province_id },
@@ -48,7 +50,6 @@
       }
       
       $("#user_province_id").on('change', function(e){
-        alert("启动1");
         var province_id = $(this).val();
         refreshCityOptions(province_id);
       });
