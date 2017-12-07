@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20171109073247) do
+ActiveRecord::Schema.define(:version => 20171124064049) do
 
   create_table "books", :force => true do |t|
     t.integer  "user_id",                                                  :null => false
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(:version => 20171109073247) do
   end
 
   add_index "cities", ["province_id"], :name => "index_cities_on_province_id"
+
+  create_table "countdowns", :force => true do |t|
+    t.integer  "book_id",    :null => false
+    t.datetime "begin_time", :null => false
+    t.datetime "end_time",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "provinces", :force => true do |t|
     t.string   "name",                      :null => false

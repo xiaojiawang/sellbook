@@ -7,6 +7,9 @@ gem 'mini_magick'
 gem "meta_search"
 gem 'rest-client'
 gem "roo", "~> 2.7.0"
+gem 'faker'
+gem 'whenever', :require => false
+gem 'qiniu'
 
 group :development do
   gem "capistrano", "~> 3.10"

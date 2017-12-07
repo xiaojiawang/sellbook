@@ -44,6 +44,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    chronic (0.10.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -54,6 +55,8 @@ GEM
     concurrent-ruby (1.0.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     ffi (1.9.18)
     hike (1.2.3)
     i18n (0.9.0)
@@ -157,6 +160,8 @@ GEM
     tzinfo (0.3.53)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -166,6 +171,7 @@ DEPENDENCIES
   capistrano (~> 3.10)
   carrierwave
   coffee-rails (~> 3.2.1)
+  faker
   jquery-rails
   meta_search
   mini_magick
@@ -177,6 +183,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
+  whenever
 
 BUNDLED WITH
    1.15.1
