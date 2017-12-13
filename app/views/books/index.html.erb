@@ -30,8 +30,8 @@
 书名:<%= book.name %><br>
 作者:<%= book.author %><br>
 描述:<%= book.description.first(50) if book.description.present? %><br>
+<a href="javascript:;" id=<%= book.id %> class="like" ><img src="/img/like0.png" style="height: 25px;width: 25px"></a>
 </div>
-</a>
 </div>
 <% end %>
 
@@ -39,8 +39,19 @@
 <% end %>
 <script type="text/javascript">
 $(document).ready(function(){
+  var status = 0;
+  $(".like").click(function(){
+    if(status == 0){
+      status = 1;
+    }else{
+        status = 0;
+      }
+    $(this).children("img").attr("src", "/img/like"+ status +".png")
+  });
+
 $('#file').change(function(){
   $(".books_import").submit();
 });
+
 });
 </script>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20171124064049) do
+ActiveRecord::Schema.define(:version => 20171208081406) do
 
   create_table "books", :force => true do |t|
     t.integer  "user_id",                                                  :null => false
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(:version => 20171124064049) do
     t.integer  "province_id"
     t.integer  "city_id"
     t.string   "avatar"
+  end
+
+  create_table "zans", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.integer  "status",     :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
 end

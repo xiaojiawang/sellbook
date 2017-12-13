@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   before_create :init_data
   belongs_to :province
   has_many :books
+  has_many :zans
 
   def self.authenticated(mobile,password)
     where("mobile = ?", mobile).first.try(:authenticate, password)
